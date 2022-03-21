@@ -1,9 +1,0 @@
-crud\model\User.class
-crud\config\AppConfig.class
-crud\controller\UserController.class
-crud\service\UserService.class
-crud\config\AppInit.class
-crud\service\UserServiceImp.class
-crud\dao\UserDao.class
-crud\dao\UserDaoImp.class
-crud\config\WebConfig.class
