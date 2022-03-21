@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Users</title>
 </head>
 <body>
@@ -27,6 +28,7 @@
                 <td>
                     <a th:href="@{/edit/{id}(id=${user.getId()})}">Edit</a>
                     <a th:href="@{/delete/{id}(id=${user.getId()})}">Delete</a>
+
                 </td>
             </tr>
         </th:block>

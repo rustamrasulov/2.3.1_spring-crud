@@ -7,4 +7,3 @@ crud\service\UserServiceImp.class
 crud\dao\UserDao.class
 crud\dao\UserDaoImp.class
 crud\config\WebConfig.class
-crud\MainApp.class
