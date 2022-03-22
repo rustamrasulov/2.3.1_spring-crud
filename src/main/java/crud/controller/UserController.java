@@ -23,7 +23,7 @@ public class UserController {
         return "index";
     }
 
-    @GetMapping(value = "delete/{id}")
+    @DeleteMapping(value = "delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUserById(id);
         return "redirect:/";
@@ -34,7 +34,7 @@ public class UserController {
         return "/new";
     }
 
-    @PostMapping(value = "/new")
+    @PutMapping(value = "/new")
     public String saveUser(@Validated User user, BindingResult result) {
         if (result.hasErrors()) {
             return "/new";
@@ -50,7 +50,7 @@ public class UserController {
         return "/edit";
     }
 
-    @PostMapping(value = "/edit/{id}")
+    @PatchMapping(value = "/edit/{id}")
     public String updateUser(@PathVariable("id") int id,
                              @Validated User user, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
@@ -61,6 +61,4 @@ public class UserController {
         userService.updateUser(user);
         return "redirect:/";
     }
-
-
 }
