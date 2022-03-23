@@ -34,7 +34,7 @@ public class UserController {
         return "/new";
     }
 
-    @PutMapping(value = "/new")
+    @PostMapping(value = "/new")
     public String saveUser(@Validated User user, BindingResult result) {
         if (result.hasErrors()) {
             return "/new";
@@ -50,7 +50,7 @@ public class UserController {
         return "/edit";
     }
 
-    @PatchMapping(value = "/edit/{id}")
+    @PutMapping(value = "/edit/{id}")
     public String updateUser(@PathVariable("id") int id,
                              @Validated User user, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {

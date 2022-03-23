@@ -11,7 +11,7 @@
     <h3>New User</h3>
     <div class="card-body">
         <!--/*@thymesVar id="user" type="crud.model.User"*/-->
-        <form action="new" th:method="PUT" th:object="${user}">
+        <form action="new" th:method="POST" th:object="${user}">
             <p>Name: <input type="text" th:value="*{firstName}" name="firstName" value="" /></p>
             <p>Last Name: <input type="text" th:value="*{lastName}" name="lastName" value="" /></p>
             <p>E-Mail: <input type="text" th:value="*{email}" name="email" value="" /></p>
