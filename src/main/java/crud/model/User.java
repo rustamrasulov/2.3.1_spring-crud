@@ -1,8 +1,5 @@
 package crud.model;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -16,18 +13,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "Enter a name")
-    @Size(min = 2, max = 30)
     @Column(name = "name")
     private String firstName;
 
-    @NotEmpty(message = "Enter a lastname")
-    @Size(min = 2, max = 30)
     @Column(name = "last_name")
     private String lastName;
 
-    @NotEmpty(message = "Enter an email")
-    @Email(message = "It's not an email address!")
     @Column(name = "email")
     private String email;
 

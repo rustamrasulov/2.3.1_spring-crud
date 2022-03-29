@@ -4,8 +4,6 @@ import crud.model.User;
 import crud.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -35,10 +33,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/new", produces = "text/html; charset=utf-8")
-    public String saveUser(@Validated User user, BindingResult result) {
-        if (result.hasErrors()) {
-            return "/new";
-        }
+    public String saveUser(User user) {
         userService.addUser(user);
         return "redirect:/";
     }
@@ -51,13 +46,7 @@ public class UserController {
     }
 
     @PutMapping(value = "/edit/{id}", produces = "text/html; charset=utf-8")
-    public String updateUser(@PathVariable("id") int id,
-                             @Validated User user, BindingResult result) {
-        if (result.hasErrors()) {
-            user.setId(id);
-            return "/edit";
-        }
-
+    public String updateUser(@PathVariable("id") int id, User user) {
         userService.updateUser(user);
         return "redirect:/";
     }
