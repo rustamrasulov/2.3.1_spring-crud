@@ -34,7 +34,7 @@ public class UserController {
         return "/new";
     }
 
-    @PostMapping(value = "/new")
+    @PostMapping(value = "/new", produces = "text/html; charset=utf-8")
     public String saveUser(@Validated User user, BindingResult result) {
         if (result.hasErrors()) {
             return "/new";
@@ -50,9 +50,9 @@ public class UserController {
         return "/edit";
     }
 
-    @PutMapping(value = "/edit/{id}")
+    @PutMapping(value = "/edit/{id}", produces = "text/html; charset=utf-8")
     public String updateUser(@PathVariable("id") int id,
-                             @Validated User user, BindingResult result, ModelMap model) {
+                             @Validated User user, BindingResult result) {
         if (result.hasErrors()) {
             user.setId(id);
             return "/edit";
@@ -61,4 +61,5 @@ public class UserController {
         userService.updateUser(user);
         return "redirect:/";
     }
+
 }
